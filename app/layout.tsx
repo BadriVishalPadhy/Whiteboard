@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ConvexClientProvider } from "@/providers/convex-client-providers";
 import { ClerkProvider,SignedIn,SignedOut,SignInButton,useAuth, UserButton } from "@clerk/nextjs";
+import { Navbar } from "./(dashboard)/_components/sidebar/navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,12 +22,13 @@ export default function RootLayout({
       <html lang="en">
         <body>
           <ClerkProvider>
-          {/* <SignedOut>
+          <SignedOut>
             <SignInButton />
-          </SignedOut> */}
-          <SignedIn>
+          </SignedOut>
+          {/* <SignedIn>
             <UserButton />
-          </SignedIn>
+          </SignedIn> */}
+          
           <ConvexClientProvider>
           {children}
           </ConvexClientProvider>
